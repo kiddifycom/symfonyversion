@@ -32,4 +32,4 @@ Which will download the Ubuntu image (if you haven't downloaded it before), boot
 ```
 http://localhost:8080/
 ``` 
-For more details regarding this setup please visit the [page in Confluence](http://example.com/ "Development Process").
+For more details regarding this setup please visit the [page in Confluence](https://delodi.atlassian.net/wiki/display/DEL/Development+Process "Development Process").
