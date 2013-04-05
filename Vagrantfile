@@ -11,4 +11,7 @@ Vagrant::Config.run do | config |
 
   # Install the neccessary packages and update the VM
   config.vm.provision :shell, :path => "conf/bootstrap.sh"
+
+   # Set the ownership of our public folder to www-data
+  config.vm.share_folder("public", "/vagrant/public", "./public", :owner => "www-data", :group => "www-data")
 end

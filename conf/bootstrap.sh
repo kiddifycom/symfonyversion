@@ -50,11 +50,15 @@ fi
 
  # Copy all the conf files present in the conf/apache2 folder to the host's etc/apache2 folder
 cp -Rf /vagrant/conf/apache2/ /etc/apache2
- # And do the same for the PHP ini files as well
+ # Do the same for the PHP ini files as well
 cp -Rf /vagrant/conf/php5/ /etc/php5/apache2
+ # And then we copy our version of my.cnf to make sure we can ssh into the mysql instance in the VM
+cp -Rf /vagrant/conf/mysql/my.cnf /etc/mysql/
 
  # Finally restart apache to apply our changes
 /etc/init.d/apache2 restart
+ # And mysql as well
+service mysql restart
 
  # And clean up apt-get packages
 apt-get -y clean
