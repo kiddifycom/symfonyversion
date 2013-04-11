@@ -27,6 +27,8 @@ then
 
         # Install CURL dev package
         apt-get -y install libcurl4-openssl-dev
+        # Install libssl, needed for zendbuxgger
+        apt-get install libssl0.9.8
 
         # Install PECL HTTP (depends on php-pear, php5-dev, libcurl4-openssl-dev)
         printf "\n" | pecl install pecl_http
@@ -54,6 +56,9 @@ cp -Rf /vagrant/conf/apache2/ /etc/apache2
 cp -Rf /vagrant/conf/php5/ /etc/php5/apache2
  # And then we copy our version of my.cnf to make sure we can ssh into the mysql instance in the VM
 cp -Rf /vagrant/conf/mysql/my.cnf /etc/mysql/
+
+# copy zend debugger and config
+cp /vagrant/conf/php-mod/ZendDebugger.so /usr/lib/php5/20090626/
 
  # Finally restart apache to apply our changes
 /etc/init.d/apache2 restart
