@@ -70,7 +70,7 @@ login to your vagrant machine an run ```$ ant```from the projects rootfolder. Se
 ##Further information
 For more details regarding this our development process visit the [page in Confluence](https://delodi.atlassian.net/wiki/display/DEL/Development+Process "Development Process").
 
-Have a look at the example-project from [Sebastian Bergmann](https://github.com/thePHPcc/bankaccount), integrated in our sturcture. It's a nice Example of a fully testable Application, alltough it lacks documentation.
+Have a look at the [example-project](https://bitbucket.org/troediger/php-project-example) from [Sebastian Bergmann](https://github.com/thePHPcc/bankaccount), integrated in our sturcture. It's a nice Example of a fully testable Application, alltough it lacks documentation.
 
 ##Todo
 + PHPUnit_Selenium - for end to end tests
