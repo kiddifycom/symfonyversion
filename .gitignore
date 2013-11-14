@@ -1,2 +1,11 @@
 .idea
 .vagrant
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+thumbs.db
+Thumbs.db
+public/Symfony/vendor/*
+public/Symfony/src/Acme/*

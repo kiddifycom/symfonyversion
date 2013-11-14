@@ -51,6 +51,7 @@ then
 
         # Add www-data to vagrant group
         usermod -a -G vagrant www-data
+        usermod -a -G www-data vagrant
 
         apt-get -y install ant
         apt-get -y install php5-xsl
@@ -71,16 +72,14 @@ then
         pear install --alldeps  pear.phpunit.de/phpcpd
 
         # Set up the public folder by removing the existing one and replacing it by a Sym. pointing to Vagrant's public folder
-	    rm -rf /var/www
-	    ln -fs /vagrant/public /var/www
 fi
 
  # Copy all the conf files present in the conf/apache2 folder to the host's etc/apache2 folder
-cp -Rf /vagrant/conf/apache2/ /etc/apache2
+rsync -av /vagrant/conf/apache2/* /etc/apache2/
  # Do the same for the PHP ini files as well
-cp -Rf /vagrant/conf/php5/ /etc/php5/apache2
+rsync -av /vagrant/conf/php5/* /etc/php5/
  # And then we copy our version of my.cnf to make sure we can ssh into the mysql instance in the VM
-cp -Rf /vagrant/conf/mysql/my.cnf /etc/mysql/
+cp /vagrant/conf/mysql/my.cnf /etc/mysql/
 
 
  # Finally restart apache to apply our changes
