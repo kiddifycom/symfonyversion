@@ -1,0 +1,53 @@
+Transcript:
+    type: entity
+    table: transcript
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        language:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        body:
+            type: text
+            nullable: true
+        version:
+            type: integer
+            unsigned: false
+            nullable: true
+        isSrt:
+            type: boolean
+            nullable: true
+            column: is_srt
+        created:
+            type: datetime
+            nullable: true
+        updated:
+            type: datetime
+            nullable: true
+    manyToOne:
+        video:
+            targetEntity: Video
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                video_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

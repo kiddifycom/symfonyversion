@@ -1,0 +1,55 @@
+Message:
+    type: entity
+    table: message
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        type:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        subject:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        body:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        viewed:
+            type: boolean
+            nullable: true
+        created:
+            type: datetime
+            nullable: true
+        updated:
+            type: datetime
+            nullable: true
+    manyToOne:
+        recipient:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                recipient_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        sender:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                sender_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

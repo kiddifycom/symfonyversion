@@ -1,0 +1,55 @@
+Badge:
+    type: entity
+    table: badge
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        url:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        title:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        translation:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        key:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        created:
+            type: datetime
+            nullable: true
+        updated:
+            type: datetime
+            nullable: true
+    manyToMany:
+        video:
+            targetEntity: Video
+            cascade: {  }
+            mappedBy: null
+            inversedBy: badge
+            joinTable:
+                name: badge_video
+                joinColumns:
+                    -
+                        name: badge_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: video_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

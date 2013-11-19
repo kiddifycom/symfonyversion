@@ -1,0 +1,31 @@
+Counter:
+    type: entity
+    table: counter
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        key:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        counter:
+            type: integer
+            unsigned: false
+            nullable: true
+    manyToOne:
+        video:
+            targetEntity: Video
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                video_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

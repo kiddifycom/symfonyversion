@@ -1,0 +1,88 @@
+Video:
+    type: entity
+    table: video
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+        title:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        url:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        accepted:
+            type: date
+            nullable: true
+        previewUrl:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: preview_url
+        created:
+            type: date
+            nullable: true
+        updated:
+            type: datetime
+            nullable: true
+    manyToMany:
+        badge:
+            targetEntity: Badge
+            cascade: {  }
+            mappedBy: video
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        tag:
+            targetEntity: Tag
+            cascade: {  }
+            mappedBy: null
+            inversedBy: video
+            joinTable:
+                name: video_tag
+                joinColumns:
+                    -
+                        name: video_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: tag_id
+                        referencedColumnName: id
+            orderBy: null
+    oneToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToOne:
+        contest:
+            targetEntity: Contest
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                contest_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        category:
+            targetEntity: Category
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

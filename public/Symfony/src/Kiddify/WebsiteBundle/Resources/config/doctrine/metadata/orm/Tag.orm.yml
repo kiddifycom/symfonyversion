@@ -1,0 +1,36 @@
+Tag:
+    type: entity
+    table: tag
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        title:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        language:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        created:
+            type: datetime
+            nullable: true
+        updated:
+            type: datetime
+            nullable: true
+    manyToMany:
+        video:
+            targetEntity: Video
+            cascade: {  }
+            mappedBy: tag
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

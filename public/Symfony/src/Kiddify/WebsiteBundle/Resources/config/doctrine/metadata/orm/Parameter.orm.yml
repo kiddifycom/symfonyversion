@@ -1,0 +1,44 @@
+Parameter:
+    type: entity
+    table: parameter
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        sortingId:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: sorting_id
+        peopleId:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: people_id
+        tagIds:
+            type: text
+            nullable: true
+            column: tag_ids
+        categoryIds:
+            type: text
+            nullable: true
+            column: category_ids
+        badgeIds:
+            type: text
+            nullable: true
+            column: badge_ids
+    manyToOne:
+        filter:
+            targetEntity: Filter
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                filter_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

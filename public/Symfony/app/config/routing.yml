@@ -1,0 +1,4 @@
+kiddify_website:
+    resource: "@KiddifyWebsiteBundle/Resources/config/routing.yml"
+    prefix:   /
+

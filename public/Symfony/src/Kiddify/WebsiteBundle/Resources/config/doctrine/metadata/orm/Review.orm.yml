@@ -1,0 +1,39 @@
+Review:
+    type: entity
+    table: review
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        created:
+            type: datetime
+            nullable: true
+        updated:
+            type: datetime
+            nullable: true
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        video:
+            targetEntity: Video
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                video_id:
+                    referencedColumnName: id
+                video_user_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

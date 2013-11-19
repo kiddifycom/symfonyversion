@@ -1,0 +1,7 @@
+parameters:
+#    kiddify_website.example.class: Kiddify\Bundle\WebsiteBundle\Example
+
+services:
+#    kiddify_website.example:
+#        class: %kiddify_website.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

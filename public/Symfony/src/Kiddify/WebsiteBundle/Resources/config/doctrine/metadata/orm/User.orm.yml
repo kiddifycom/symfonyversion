@@ -1,0 +1,91 @@
+User:
+    type: entity
+    table: user
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        username:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        avatarUrl:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: avatar_url
+        schoolname:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        password:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        parentEmail:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: parent_email
+        tcAgree:
+            type: boolean
+            nullable: true
+            column: tc_agree
+        city:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        birthdate:
+            type: date
+            nullable: true
+        created:
+            type: datetime
+            nullable: true
+        updated:
+            type: datetime
+            nullable: true
+    manyToMany:
+        contests:
+            targetEntity: Contest
+            cascade: {  }
+            mappedBy: users
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        followed:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: follower
+            joinTable:
+                name: follow
+                joinColumns:
+                    -
+                        name: follower_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: followed_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        country:
+            targetEntity: Country
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                country_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,78 @@
+Contest:
+    type: entity
+    table: contest
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        logoUrl:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: logo_url
+        bannerUrl:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: banner_url
+        title:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        descriptionShort:
+            type: text
+            nullable: true
+            column: description_short
+        descriptionLong:
+            type: text
+            nullable: true
+            column: description_long
+        dateStart:
+            type: datetime
+            nullable: true
+            column: date_start
+        dateEnd:
+            type: datetime
+            nullable: true
+            column: date_end
+        created:
+            type: datetime
+            nullable: true
+        updated:
+            type: datetime
+            nullable: true
+    manyToMany:
+        users:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: contests
+            joinTable:
+                name: contest_user
+                joinColumns:
+                    -
+                        name: contests_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: users_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        badge:
+            targetEntity: Badge
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                badge_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
