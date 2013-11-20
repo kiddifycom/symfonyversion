@@ -1,11 +1,12 @@
 services:
-    sonata.admin.post:
+    sonata.admin.user:
         class: Kiddify\Bundle\WebsiteBundle\Admin\UserAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Groups", label: "User" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "User" }
         arguments:
             - ~
             - Kiddify\Bundle\WebsiteBundle\Entity\User
             - ~
         calls:
             - [ setTranslationDomain, [KiddifyWebsiteBundle]]
+
