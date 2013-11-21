@@ -25,12 +25,8 @@ class UserAdmin extends Admin
             ->add('schoolname', 'text', array('label' => 'school name'))
             ->add('parent_email', 'text', array('label' => 'parent email'))
             ->add('tc_agree', 'radio', array('label' => 'agreement'))
-
             ->add('city', 'text', array('label' => 'city'))
             ->add('birthdate', 'date', array('label' => 'birthday'))
-
-
-
         ;
     }
 

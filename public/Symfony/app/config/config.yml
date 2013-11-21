@@ -103,16 +103,15 @@ sonata_admin:
 
 
 
-kiddify_admin:
-    handler: kiddify.admin.security.handler.acl
-    security:
-        information:
-            GUEST:    [VIEW, LIST]
-            Reviewer: [REVIEW, LIST]
-            ADMIN: [MASTER]
-        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
-        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
-
+#kiddify_admin:
+#    handler: kiddify.admin.security.handler.acl
+#    security:
+#        information:
+#            GUEST:    [VIEW, LIST]
+#            Reviewer: [REVIEW, LIST]
+#            ADMIN: [MASTER]
+#        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+#        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
 
 
 
