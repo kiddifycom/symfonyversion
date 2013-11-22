@@ -11,6 +11,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
 
 class UserAdmin extends Admin
 {
@@ -28,17 +29,24 @@ class UserAdmin extends Admin
             ->add('city', 'text', array('label' => 'city'))
             ->add('birthdate', 'date', array('label' => 'birthday'))
         ;
+        $formMapper->with('Roles')
+            ->add('roles', 'choice',
+                array('choices'=>
+                    array('ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN','ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_REVIEWER' => 'ROLE_REVIEWER', 'ROLE_GUEST' => 'ROLE_GUEST','ROLE_USER' => 'ROLE_USER'),
+                    'expanded'=> true,
+                    'multiple'=> true))
+            ->end();
     }
 
     // Fields to be shown on filter forms
-//    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-//    {
-//        $datagridMapper
-//            ->add('username')
-//            ->add('email')
-//
-//        ;
-//    }
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('username')
+            ->add('email')
+
+        ;
+    }
 
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
@@ -58,5 +66,6 @@ class UserAdmin extends Admin
             ->add('updated')
 
         ;
+        $listMapper->add('roles');
     }
 }
