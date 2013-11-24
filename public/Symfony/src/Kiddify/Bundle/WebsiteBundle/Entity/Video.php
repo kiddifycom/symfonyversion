@@ -17,7 +17,7 @@ class Video
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
@@ -88,9 +88,7 @@ class Video
     /**
      * @var \User
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -127,18 +125,7 @@ class Video
     }
     
 
-    /**
-     * Set id
-     *
-     * @param integer $id
-     * @return Video
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    
-        return $this;
-    }
+
 
     /**
      * Get id

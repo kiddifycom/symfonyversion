@@ -31,7 +31,7 @@ class ReviewCriteria
     /**
      * @var string
      *
-     * @ORM\Column(name="key", type="string", length=255, nullable=true)
+     * @ORM\Column(name="text_key", type="string", length=255, nullable=true)
      */
     private $key;
 

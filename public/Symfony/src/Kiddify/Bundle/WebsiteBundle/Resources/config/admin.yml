@@ -2,11 +2,63 @@ services:
     sonata.admin.user:
         class: Kiddify\Bundle\WebsiteBundle\Admin\UserAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "User" }
+            - { name: sonata.admin, manager_type: orm, group: "Entities", label: "User" }
         arguments:
             - ~
             - Kiddify\Bundle\WebsiteBundle\Entity\User
             - ~
         calls:
             - [ setTranslationDomain, [KiddifyWebsiteBundle]]
+    sonata.admin.video:
+        class: Kiddify\Bundle\WebsiteBundle\Admin\VideoAdmin
+        tags:
+        - { name: sonata.admin, manager_type: orm, group: "Entities", label: "Video" }
+        arguments:
+        - ~
+        - Kiddify\Bundle\WebsiteBundle\Entity\Video
+        - ~
+        calls:
+        - [ setTranslationDomain, [KiddifyWebsiteBundle]]
+    sonata.admin.contest:
+        class: Kiddify\Bundle\WebsiteBundle\Admin\ContestAdmin
+        tags:
+        - { name: sonata.admin, manager_type: orm, group: "Entities", label: "Contest" }
+        arguments:
+        - ~
+        - Kiddify\Bundle\WebsiteBundle\Entity\Contest
+        - ~
+        calls:
+        - [ setTranslationDomain, [KiddifyWebsiteBundle]]
+    sonata.admin.badge:
+        class: Kiddify\Bundle\WebsiteBundle\Admin\BadgeAdmin
+        tags:
+        - { name: sonata.admin, manager_type: orm, group: "Entities", label: "Badge" }
+        arguments:
+        - ~
+        - Kiddify\Bundle\WebsiteBundle\Entity\Badge
+        - ~
+        calls:
+        - [ setTranslationDomain, [KiddifyWebsiteBundle]]
+
+    sonata.admin.filter:
+        class: Kiddify\Bundle\WebsiteBundle\Admin\FilterAdmin
+        tags:
+        - { name: sonata.admin, manager_type: orm, group: "Entities", label: "Filter" }
+        arguments:
+        - ~
+        - Kiddify\Bundle\WebsiteBundle\Entity\Filter
+        - ~
+        calls:
+        - [ setTranslationDomain, [KiddifyWebsiteBundle]]
+    sonata.admin.category:
+        class: Kiddify\Bundle\WebsiteBundle\Admin\CategoryAdmin
+        tags:
+        - { name: sonata.admin, manager_type: orm, group: "Entities", label: "Category" }
+        arguments:
+        - ~
+        - Kiddify\Bundle\WebsiteBundle\Entity\Category
+        - ~
+        calls:
+        - [ setTranslationDomain, [KiddifyWebsiteBundle]]
+
 

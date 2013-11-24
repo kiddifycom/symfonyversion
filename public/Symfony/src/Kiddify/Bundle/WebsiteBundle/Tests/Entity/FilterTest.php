@@ -19,8 +19,8 @@ class FilterTest extends \BaseTest
     {
 
         $filter=new Filter();
-        $filter->setName("filter");
-        $this->assertEquals('filter',$filter->getName());
+        $filter->setTitle("filter");
+        $this->assertEquals('filter',$filter->getTitle());
 
 
         $filter->setCreated("18/11/2013");

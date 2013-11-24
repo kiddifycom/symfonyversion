@@ -99,7 +99,32 @@ sonata_admin:
         admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
         # permission related to the objects
         object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
-
+#    dashboard:
+#        blocks:
+#            -
+#                position: left
+#                type: sonata.admin.block.admin_list
+#                settings:
+#                    groups: [users, videos]
+#            -
+#                position: right
+#                type: sonata.admin.block.admin_list
+#                settings:
+#                    groups: [contests, badges]
+#
+#        groups:
+#            users:
+#                items:
+#                    - sonata.admin.user
+#            videos:
+#                items:
+#                    - sonata.admin.video
+#            badges:
+#                items:
+#                    - sonata.admin.badge
+#            contests:
+#                items:
+#                    - sonata.admin.contest
 
 
 
