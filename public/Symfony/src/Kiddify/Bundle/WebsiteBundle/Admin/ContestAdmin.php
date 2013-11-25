@@ -23,7 +23,7 @@ class ContestAdmin extends Admin
             ->add('banner_url', 'text', array('label' => 'Banner'))
             ->add('description_short', 'textarea', array('label' => 'Summary'))
             ->add('description_long', 'textarea', array('label' => 'Description'))
-            ->add('badge', 'sonata_type_model')
+            ->add('badge', 'sonata_type_model_list')
             ->add('date_start', 'date', array('label' => 'Start'))
             ->add('date_end', 'date', array('label' => 'End'))
             ->add('created', 'date', array('label' => 'created'))
@@ -54,10 +54,10 @@ class ContestAdmin extends Admin
             ->add('banner_url')
             ->add('description_short')
             ->add('description_long')
-            ->add('date_start')
-            ->add('date_end')
-            ->add('created')
-            ->add('updated')
+//            ->add('date_start')
+//            ->add('date_end')
+//            ->add('created')
+//            ->add('updated')
         ;
 
     }

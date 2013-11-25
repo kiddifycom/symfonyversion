@@ -12,16 +12,14 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class BadgeAdmin extends Admin
+class TagAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Title'))
-            ->add('url', 'text', array('label' => 'URL'))
-            ->add('translation', 'text', array('label' => 'Translation'))
-            ->add('text_key', 'text', array('label' => 'Key'))
+            ->add('language', 'text', array('label' => 'Language'))
 
             ->add('created', 'date', array('label' => 'created'))
             ->add('updated', 'date', array('label' => 'Updated'))
@@ -50,9 +48,7 @@ class BadgeAdmin extends Admin
         $listMapper
             ->addIdentifier('title')
             ->addIdentifier('video', 'entity', array('class' => 'Kiddify\Bundle\WebsiteBundle\Entity\Video'))
-            ->add('url')
-            ->add('translation')
-            ->add('text_key')
+            ->add('language')
             ->add('created')
             ->add('updated')
         ;

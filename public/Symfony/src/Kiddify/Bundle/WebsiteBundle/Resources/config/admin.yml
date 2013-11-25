@@ -60,5 +60,15 @@ services:
         - ~
         calls:
         - [ setTranslationDomain, [KiddifyWebsiteBundle]]
+    sonata.admin.tag:
+        class: Kiddify\Bundle\WebsiteBundle\Admin\TagAdmin
+        tags:
+        - { name: sonata.admin, manager_type: orm, group: "Entities", label: "Tag" }
+        arguments:
+        - ~
+        - Kiddify\Bundle\WebsiteBundle\Entity\Tag
+        - ~
+        calls:
+        - [ setTranslationDomain, [KiddifyWebsiteBundle]]
 
 

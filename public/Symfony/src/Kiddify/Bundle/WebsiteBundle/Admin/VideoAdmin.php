@@ -23,17 +23,26 @@ class VideoAdmin extends Admin
             ->add('user', 'sonata_type_model')
             ->add('url', 'text', array('label' => 'URL'))
             ->add('preview_url', 'text', array('label' => 'Preview URL'))
+        ->with('contests')
             ->add('contest', 'sonata_type_model')
+        ->end()
             ->add('category', 'sonata_type_model')
+        ->with('badges')
             ->add('badge', 'sonata_type_model', array('expanded' => true, 'by_reference' => false, 'multiple' => true))
+        ->end()
+        ->with('tags')
+            ->add('tag', 'sonata_type_model', array('expanded' => true, 'by_reference' => false, 'multiple' => true))
+        ->end()
             ->add('accepted','date', array('label'=>'Acceptance date'))
             ->add('created', 'date', array('label' => 'Created'))
             ->add('updated', 'date', array('label' => 'Updated'))
+
         ;
 
+
+
+
     }
-
-
 
     // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -54,7 +63,8 @@ class VideoAdmin extends Admin
             ->addIdentifier('user', 'entity', array('class' => 'Kiddify\Bundle\WebsiteBundle\Entity\User'))
             ->addIdentifier('contest', 'entity', array('class' => 'Kiddify\Bundle\WebsiteBundle\Entity\Contest'))
             ->addIdentifier('category', 'entity', array('class' => 'Kiddify\Bundle\WebsiteBundle\Entity\Category'))
-//            ->addIdentifier('badge', 'entity', array('class' => 'Kiddify\Bundle\WebsiteBundle\Entity\Badge'))
+            ->addIdentifier('badge', 'entity', array('class' => 'Kiddify\Bundle\WebsiteBundle\Entity\Badge'))
+            ->addIdentifier('tag', 'entity', array('class' => 'Kiddify\Bundle\WebsiteBundle\Entity\Tag'))
             ->add('url')
             ->add('preview_url')
             ->add('created')

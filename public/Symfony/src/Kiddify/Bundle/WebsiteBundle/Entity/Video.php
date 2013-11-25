@@ -66,7 +66,15 @@ class Video
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Badge", mappedBy="video")
+     * @ORM\ManyToMany(targetEntity="Badge", inversedBy="video")
+     * @ORM\JoinTable(name="badge_video",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="video_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="badge_id", referencedColumnName="id")
+     *   }
+     * )
      */
     private $badge;
 
@@ -408,5 +416,9 @@ class Video
     public function getCategory()
     {
         return $this->category;
+    }
+    public function __toString()
+    {
+        return ($this->title );
     }
 }

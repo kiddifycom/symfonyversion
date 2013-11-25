@@ -390,4 +390,8 @@ class Contest
     {
         return $this->badge;
     }
+    public function __toString()
+    {
+        return ($this->title );
+    }
 }

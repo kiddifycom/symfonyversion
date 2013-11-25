@@ -47,7 +47,7 @@ class Badge
      *
      * @ORM\Column(name="text_key", type="string", length=255, nullable=true)
      */
-    private $key;
+    private $text_key;
 
     /**
      * @var \DateTime
@@ -66,15 +66,8 @@ class Badge
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Video", inversedBy="badge")
-     * @ORM\JoinTable(name="badge_video",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="badge_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="video_id", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\ManyToMany(targetEntity="Video", mappedBy="badge")
+     *
      */
     private $video;
 
@@ -167,26 +160,26 @@ class Badge
     }
 
     /**
-     * Set key
+     * Set text_key
      *
-     * @param string $key
+     * @param string $text_key
      * @return Badge
      */
-    public function setKey($key)
+    public function setTextKey($text_key)
     {
-        $this->key = $key;
+        $this->text_key = $text_key;
     
         return $this;
     }
 
     /**
-     * Get key
+     * Get text_key
      *
      * @return string 
      */
-    public function getKey()
+    public function getTextKey()
     {
-        return $this->key;
+        return $this->text_key;
     }
 
     /**
@@ -266,5 +259,10 @@ class Badge
     public function getVideo()
     {
         return $this->video;
+    }
+
+    public function __toString()
+    {
+        return ($this->title );
     }
 }

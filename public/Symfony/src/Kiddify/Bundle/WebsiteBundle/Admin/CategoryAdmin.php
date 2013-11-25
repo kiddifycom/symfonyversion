@@ -43,7 +43,7 @@ class CategoryAdmin extends Admin
         $listMapper
             ->addIdentifier('title')
             ->add('language')
-            ->add('key')
+            ->add('text_key')
             ->add('created')
             ->add('updated')
         ;
