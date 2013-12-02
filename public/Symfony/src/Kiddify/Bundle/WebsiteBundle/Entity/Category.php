@@ -38,9 +38,9 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="key", type="string", length=255, nullable=true)
+     * @ORM\Column(name="text_key", type="string", length=255, nullable=true)
      */
-    private $key;
+    private $text_key;
 
     /**
      * @var \DateTime
@@ -115,26 +115,26 @@ class Category
     }
 
     /**
-     * Set key
+     * Set text_key
      *
-     * @param string $key
+     * @param string $text_key
      * @return Category
      */
-    public function setKey($key)
+    public function setTextKey($text_key)
     {
-        $this->key = $key;
+        $this->text_key = $text_key;
     
         return $this;
     }
 
     /**
-     * Get key
+     * Get text_key
      *
      * @return string 
      */
-    public function getKey()
+    public function getTextKey()
     {
-        return $this->key;
+        return $this->text_key;
     }
 
     /**
@@ -181,5 +181,9 @@ class Category
     public function getUpdated()
     {
         return $this->updated;
+    }
+    public function __toString()
+    {
+        return ($this->title );
     }
 }

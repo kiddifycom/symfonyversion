@@ -199,4 +199,8 @@ class Tag
     {
         return $this->video;
     }
+    public function __toString()
+    {
+        return ($this->title );
+    }
 }

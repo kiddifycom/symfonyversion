@@ -51,7 +51,6 @@ class Review
      * @ORM\ManyToOne(targetEntity="Video")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="video_id", referencedColumnName="id"),
-     *   @ORM\JoinColumn(name="video_user_id", referencedColumnName="user_id")
      * })
      */
     private $video;
